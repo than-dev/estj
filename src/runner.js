@@ -6,6 +6,12 @@ class Runner {
         this.testFiles = []
     }
 
+    async runTests() {
+        for (let file of this.testFiles) {
+            require(file.name)
+        }
+    }
+
     async collectFiles(targetPath = process.cwd()) {
         const files = await fs.readdir(targetPath)
 
