@@ -1,5 +1,4 @@
 beforeEach(() => {
-    console.log('oi');
     console.log('I\'m executing before a test');
 })
 

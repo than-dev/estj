@@ -20,8 +20,7 @@ class Runner {
 
                 try {
                     fn()
-                    logger.yellow(`OK - ${description}`)
-                    console.log('oi');
+                    logger.green(`OK - ${description}`)
                 } catch (error) {
                     logger.red(`X - ${desc}`);
                     logger.red('\t', error.message);
