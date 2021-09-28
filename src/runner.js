@@ -1,5 +1,6 @@
 const fs = require('fs/promises');
 const path = require('path');
+const { logger } = require('./utils/colorful-logger/logger')
 
 class Runner {
     constructor() {
@@ -15,22 +16,22 @@ class Runner {
             }
 
             global.it = (description, fn) => {
-                beforeEaches.forEach(func => func());
+                beforeEaches.forEach(async func => await func());
 
                 try {
                     fn()
-                    console.log(`OK - ${description}`);
+                    logger.yellow(`OK - ${description}`)
+                    console.log('oi');
                 } catch (error) {
-                    console.log(`X - ${desc}`);
-                    console.log('\t', error.message);
+                    logger.red(`X - ${desc}`);
+                    logger.red('\t', error.message);
                 }
             }
 
             try {
                 require(file.name)
             } catch (error) {
-                console.log('X - Error Loading File', file.name);
-                console.log('\t', error.message);
+                logger.red(`\t ${error}`);
             }
         }
     }
