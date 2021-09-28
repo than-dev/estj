@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/NathanCotrim/EstJ/issues"
   },
-  "homepage": "https://github.com/NathanCotrim/EstJ#readme"
+  "homepage": "https://github.com/NathanCotrim/EstJ#readme",
+  "bin": {
+    "esjt": "src/index.js"
+  }
 }
