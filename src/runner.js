@@ -6,7 +6,7 @@ class Runner {
         this.files = []
     }
 
-    async collectFiles(targetPath = path.join('.')) {
+    async collectFiles(targetPath = process.cwd()) {
         const files = await fs.readdir(targetPath)
 
         return files
