@@ -3,13 +3,24 @@ const path = require('path');
 
 class Runner {
     constructor() {
-        this.files = []
+        this.testFiles = []
     }
 
     async collectFiles(targetPath = process.cwd()) {
         const files = await fs.readdir(targetPath)
 
-        return files
+        for (let file of files) {
+            const filepath = path.join(targetPath, file)
+            const stats = await fs.lstat(filepath)
+
+            if (stats.isFile() && file.includes('.test.js')) {
+                this.testFiles.push({ name: filepath })
+            } else if (stats.isDirectory()) {
+                const childFiles = await fs.readdir(filepath)
+
+                files.push(...childFiles.map(childFile => path.join(file, childFile)))
+            }
+        }
     }
 }
 
