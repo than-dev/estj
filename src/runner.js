@@ -22,10 +22,16 @@ class Runner {
                     console.log(`OK - ${description}`);
                 } catch (error) {
                     console.log(`X - ${desc}`);
-                    console.log(error);
+                    console.log('\t', error.message);
                 }
             }
-            require(file.name)
+
+            try {
+                require(file.name)
+            } catch (error) {
+                console.log('X - Error Loading File', file.name);
+                console.log('\t', error.message);
+            }
         }
     }
 
