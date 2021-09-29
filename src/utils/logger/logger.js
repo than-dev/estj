@@ -15,7 +15,6 @@ class Logger {
         });
 
         effects.forEach(({ effect, value }) => {
-            console.log(effect);
             this[effect] = (info) => {
                 console.log(
                     `\x1b[${value}m%s\x1b[0m`, info,
@@ -32,13 +31,3 @@ const logger = new Logger(
 )
 
 module.exports = { logger }
-
-
-logger.reset('Testando')
-logger.bright('Testando')
-logger.dim('Testando')
-logger.italic('Testando')
-logger.underscore('Testando')
-logger.blink('Testando')
-logger.reverse('Testando')
-logger.hidden('Testando')
