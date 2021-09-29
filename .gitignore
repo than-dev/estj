@@ -2,3 +2,4 @@ node_modules
 **.lock
 package-lock.json
 webapp-example/
+functions/
