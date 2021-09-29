@@ -16,7 +16,7 @@ class Runner {
 
     async runTests() {
         if (this.testFiles.length === 0) {
-            return logger.yellow('----- No test cases -----')
+            return logger.yellow('----- No test cases -----\n')
         }
         
         logger.cyan('\nRunning tests...\n')
@@ -42,15 +42,15 @@ class Runner {
                     logger.green(`\t✅ ${description}\n`)
                 } catch (error) {
                     const message = error.message.replace(/\n/g, '\n\t\t')
-                    logger.red(`\t❌ ${description}\n`);
-                    logger.red('\t', message);
+                    logger.red(`\t❌ ${description}`);
+                    logger.red('\t', `${message}\n`);
                 }
             }
-
+ 
             try {
                 require(file.name)
             } catch (error) {
-                logger.red(`\t ${error}`);
+                logger.red(`\t ${error}\n`);
             }
         }
     }
