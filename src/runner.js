@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 const { logger } = require('./utils/logger/logger')
+const render = require('./render')
 
 const ignoredDirectories = [
     'node_modules',
@@ -15,7 +16,10 @@ class Runner {
     async runTests() {
         for (let file of this.testFiles) {
             logger.gray(`---- ${file.name}`)
+
             const beforeEaches = []
+
+            global.render = render
 
             global.beforeEach = (fn) => {
                 beforeEaches.push(fn)

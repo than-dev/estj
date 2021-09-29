@@ -1,7 +1,9 @@
-beforeEach(() => {
-    console.log('I\'m executing before a test');
+const assert = require('assert')
+
+it('should has a text input', async () => {
+    const dom = await render('/webapp-example/index.html')
+
+    const input = dom.window.document.querySelector('input')
+
+    assert(input)
 })
-
-it('should assert it test', () => { })
-
-it('should assert it test again', () => { })
