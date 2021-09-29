@@ -15,7 +15,7 @@ class Runner {
 
     async runTests() {
         for (let file of this.testFiles) {
-            logger.gray(`---- ${file.name}`)
+            logger.gray(`--- ${file.name}`)
 
             const beforeEaches = []
 
@@ -25,15 +25,15 @@ class Runner {
                 beforeEaches.push(fn)
             }
 
-            global.it = (description, fn) => {
+            global.it = async (description, fn) => {
                 beforeEaches.forEach(async func => await func());
 
                 try {
-                    fn()
+                    await fn()
                     logger.green(`\t✅ ${description}`)
                 } catch (error) {
                     const message = error.message.replace(/\n/g, '\n\t\t')
-                    logger.red(`\t❌ ${desc}`);
+                    logger.red(`\t❌ ${description}`);
                     logger.red('\t', message);
                 }
             }

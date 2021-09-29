@@ -5,5 +5,5 @@ it('should has a text input', async () => {
 
     const input = dom.window.document.querySelector('input')
 
-    assert(input)
+    assert.equal(input, 'teste')
 })
