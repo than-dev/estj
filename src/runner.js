@@ -14,6 +14,7 @@ class Runner {
 
     async runTests() {
         for (let file of this.testFiles) {
+            logger.gray(`---- ${file.name}`)
             const beforeEaches = []
 
             global.beforeEach = (fn) => {
