@@ -2,6 +2,11 @@ const fs = require('fs/promises');
 const path = require('path');
 const { logger } = require('./utils/logger/logger')
 
+const ignoredDirectories = [
+    'node_modules',
+    'dist'
+]
+
 class Runner {
     constructor() {
         this.testFiles = []
@@ -45,7 +50,7 @@ class Runner {
 
             if (stats.isFile() && file.includes('.test.js')) {
                 this.testFiles.push({ name: filepath })
-            } else if (stats.isDirectory()) {
+            } else if (stats.isDirectory() && !ignoredDirectories.includes(file)) {
                 const childFiles = await fs.readdir(filepath)
 
                 files.push(...childFiles.map(childFile => path.join(file, childFile)))
