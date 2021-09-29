@@ -2,6 +2,7 @@ const fs = require('fs/promises');
 const path = require('path');
 const { logger } = require('./utils/logger/logger')
 const render = require('./render')
+const assert = require('assert')
 
 const ignoredDirectories = [
     'node_modules',
@@ -14,10 +15,18 @@ class Runner {
     }
 
     async runTests() {
+        if (this.testFiles.length === 0) {
+            return logger.yellow('----- No test cases -----')
+        }
+        
+        logger.cyan('\nRunning tests')
+
         for (let file of this.testFiles) {
             logger.gray(`--- ${file.name}`)
 
             const beforeEaches = []
+
+            global.assert = assert
 
             global.render = render
 
@@ -47,6 +56,8 @@ class Runner {
     }
 
     async collectFiles(targetPath = process.cwd()) {
+        logger.cyan('\nFinding test files...')
+        
         const files = await fs.readdir(targetPath)
 
         for (let file of files) {

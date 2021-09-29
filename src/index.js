@@ -9,5 +9,3 @@ const run = async () => {
 }
 
 run()
-
-console.log('Running tests...');

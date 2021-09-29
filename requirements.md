@@ -6,7 +6,8 @@
 -   [x] Must be able to test a whole application; <br>
 -   [ ] CLI must have a 'watch mode'; <br>
 -   [x] CLI must automatically find and run all \*.test.js files;
--   [ ] Must support typescript
+-   [ ] Must support typescript; <br>
+-   [ ] Must report the received value in error cases;
 
 <br>
 <hr>
