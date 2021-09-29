@@ -19,5 +19,8 @@
   "homepage": "https://github.com/NathanCotrim/EstJ#readme",
   "bin": {
     "estj": "src/index.js"
+  },
+  "devDependencies": {
+    "jsdom": "^17.0.0"
   }
 }
