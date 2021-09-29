@@ -1,6 +1,7 @@
 const fs = require('fs/promises');
 const path = require('path');
 const { logger } = require('./utils/logger/logger')
+const render = require('./render')
 
 const ignoredDirectories = [
     'node_modules',
@@ -14,21 +15,25 @@ class Runner {
 
     async runTests() {
         for (let file of this.testFiles) {
+            logger.gray(`--- ${file.name}`)
+
             const beforeEaches = []
+
+            global.render = render
 
             global.beforeEach = (fn) => {
                 beforeEaches.push(fn)
             }
 
-            global.it = (description, fn) => {
+            global.it = async (description, fn) => {
                 beforeEaches.forEach(async func => await func());
 
                 try {
-                    fn()
-                    logger.green(`\tOK - ${description}`)
+                    await fn()
+                    logger.green(`\t✅ ${description}`)
                 } catch (error) {
                     const message = error.message.replace(/\n/g, '\n\t\t')
-                    logger.red(`\tX - ${desc}`);
+                    logger.red(`\t❌ ${description}`);
                     logger.red('\t', message);
                 }
             }
