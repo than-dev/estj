@@ -30,10 +30,10 @@ class Runner {
 
                 try {
                     fn()
-                    logger.green(`\tOK - ${description}`)
+                    logger.green(`\t✅ ${description}`)
                 } catch (error) {
                     const message = error.message.replace(/\n/g, '\n\t\t')
-                    logger.red(`\tX - ${desc}`);
+                    logger.red(`\t❌ ${desc}`);
                     logger.red('\t', message);
                 }
             }
