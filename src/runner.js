@@ -1,6 +1,6 @@
 const fs = require('fs/promises');
 const path = require('path');
-const { logger } = require('./utils/colorful-logger/logger')
+const { logger } = require('./utils/logger/logger')
 
 class Runner {
     constructor() {
@@ -20,10 +20,11 @@ class Runner {
 
                 try {
                     fn()
-                    logger.green(`OK - ${description}`)
+                    logger.green(`\tOK - ${description}`)
                 } catch (error) {
-                    logger.red(`X - ${desc}`);
-                    logger.red('\t', error.message);
+                    const message = error.message.replace(/\n/g, '\n\t\t')
+                    logger.red(`\tX - ${desc}`);
+                    logger.red('\t', message);
                 }
             }
 
