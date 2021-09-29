@@ -1,11 +1,12 @@
-## Generical Requirements <br> <br>
+## Generically Requirements <br> <br>
 
-- [ ] Must be a node-based CLI framework; <br>
-- [ ] Must be able to test browser-based JS apps; <br>
-- [ ] Must require a minimally setup; <br>
-- [ ] Must be able to test a whole application; <br>
-- [ ] CLI must have a 'watch mode'; <br>
-- [ ] CLI must automatically find and run all *.test.js files;
+-   [x] Must be a node-based CLI framework; <br>
+-   [x] Must be able to test browser-based JS apps; <br>
+-   [x] Must require a minimally setup; <br>
+-   [x] Must be able to test a whole application; <br>
+-   [ ] CLI must have a 'watch mode'; <br>
+-   [x] CLI must automatically find and run all \*.test.js files;
+-   [ ] Must support typescript
 
 <br>
 <hr>
@@ -13,9 +14,9 @@
 
 ### File Collection <br>
 
-- [ ]  Find all *.test.js files;<br>
-- [ ]  Store a reference to each file we find; <br>
-- [ ]  After getting a full list of these files, execute them one by one.
+-   [x] Find all \*.test.js files;<br>
+-   [x] Store a reference to each file we find; <br>
+-   [x] After getting a full list of these files, execute them one by one.
 
 <br>
 <hr>
@@ -23,9 +24,7 @@
 
 ### Implementation Plan <br>
 
-- File collection;
-- Test environment setup;
-- Test file execution;
-- Report results;
-
-
+-   File collection;
+-   Test environment setup;
+-   Test file execution;
+-   Report results;
