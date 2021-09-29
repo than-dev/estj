@@ -1,23 +1,23 @@
 {
   "name": "esjt",
   "version": "1.0.0",
-  "description": "",
+  "description": "a test framework",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "estj"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NathanCotrim/EstJ.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nathan Cotrim",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/NathanCotrim/EstJ/issues"
   },
   "homepage": "https://github.com/NathanCotrim/EstJ#readme",
   "bin": {
-    "esjt": "src/index.js"
+    "estj": "src/index.js"
   }
 }
