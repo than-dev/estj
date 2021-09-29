@@ -19,10 +19,10 @@ class Runner {
             return logger.yellow('----- No test cases -----')
         }
         
-        logger.cyan('\nRunning tests')
+        logger.cyan('\nRunning tests...\n')
 
         for (let file of this.testFiles) {
-            logger.gray(`--- ${file.name}`)
+            logger.gray(`--- ${file.name}\n`)
 
             const beforeEaches = []
 
@@ -39,10 +39,10 @@ class Runner {
 
                 try {
                     await fn()
-                    logger.green(`\t✅ ${description}`)
+                    logger.green(`\t✅ ${description}\n`)
                 } catch (error) {
                     const message = error.message.replace(/\n/g, '\n\t\t')
-                    logger.red(`\t❌ ${description}`);
+                    logger.red(`\t❌ ${description}\n`);
                     logger.red('\t', message);
                 }
             }

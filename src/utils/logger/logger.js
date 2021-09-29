@@ -9,7 +9,6 @@ class Logger {
             this[color] = (info) => {
                 console.log(
                     `\x1b[${value}m%s\x1b[0m`, info,
-                    '\n'
                 );
             }
         });
