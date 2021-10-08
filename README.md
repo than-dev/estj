@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://cdn-icons-png.flaticon.com/512/1039/1039328.png" width="300px" height="280px"> <br> <br> <br> <br>
+    <img src="https://cdn-icons-png.flaticon.com/512/1039/1039328.png" width="300px" height="280px"> <br> <br>
     <h1>
         EstJ
     </h1>
