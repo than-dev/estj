@@ -15,7 +15,7 @@ class Runner {
     }
 
     async runTests() {
-        if (this.testFiles.length === 0) {
+        if (!this.testFiles.length) {
             return logger.yellow('----- No test cases -----\n')
         }
         
