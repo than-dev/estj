@@ -1,8 +1,8 @@
 const fs = require('fs/promises');
 const path = require('path');
-const { logger } = require('./utils/logger/logger')
-const render = require('./render')
-const assert = require('assert')
+const { logger } = require('./utils/logger/logger');
+const render = require('./render');
+const assert = require('assert');
 
 const ignoredDirectories = [
     'node_modules',
