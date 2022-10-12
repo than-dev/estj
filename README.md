@@ -10,7 +10,7 @@
 
 ### 🍪 Description <br>
 
-It's a simple javascript test framework, with purpose be able people execute tests simply and fast!
+It's a simple javascript test lib, with purpose be able people execute tests simply and fast!
 
 <br>
 
